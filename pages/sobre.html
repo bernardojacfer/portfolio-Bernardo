@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre | Meu Projeto Pessoal</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="brand">Meu Projeto</div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="sobre.html" class="active">Sobre</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+   <section class="page-intro">
+  <img src="../img/IMG_5300.JPG" alt="Foto de Bernardo Jaques" class="profile-photo">
+  <span class="eyebrow">Sobre</span>
+  <h1>Olá, eu sou o Bernardo</h1>
+  <p class="lead">
+    Tenho 16 anos e sou de Monte Mor - SP. Sou apaixonado por academia
+    (treino musculação) e futebol, e criei este site como meu projeto
+    pessoal na disciplina de Desenvolvimento de Websites.
+  </p>
+</section>
+
+<section class="content-block">
+  <h2>Um pouco sobre mim</h2>
+  <p>
+    Quando não estou estudando, você provavelmente vai me encontrar na
+    academia treinando ou jogando uma bola com os amigos. Gosto de
+    disciplina e evolução constante — seja nos treinos, seja aprendendo
+    a programar.
+  </p>
+
+  <h2>Objetivo deste projeto</h2>
+  <p>
+    Este site é o meu espaço pessoal para colocar em prática o que estou
+    aprendendo em Desenvolvimento de Websites, unindo HTML, CSS e, em
+    breve, JavaScript.
+  </p>
+
+  
+</section>
+  <section class="content-block">
+    <h2>Busque um time de futebol</h2>
+    <p>Como gosto de futebol, usei uma API pública para buscar dados de times. Experimente!</p>
+    <form id="form-time" novalidate>
+      <label for="time">Nome do time</label>
+      <input type="text" id="time" name="time" placeholder="Ex.: Corinthians">
+      <button type="submit" class="btn">Buscar time</button>
+    </form>
+    <div id="time-resultado" class="feedback" aria-live="polite"></div>
+  </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Feito por mim &middot; Colégio UNASP-HT &middot; Técnico em Informática</p>
+  </footer>
+
+  <script src="../js/times.js"></script>
+</body>
+</html>

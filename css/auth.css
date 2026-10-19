@@ -1,0 +1,42 @@
+/* Estilos para as telas de login e cadastro.
+   Inclua este arquivo além do seu css/style.css já existente:
+   <link rel="stylesheet" href="../css/auth.css"> */
+
+.form-auth {
+  display: flex;  
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 360px;
+  margin-top: 1.5rem;
+}
+
+.form-auth label {
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.form-auth input {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.mensagem {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+  max-width: 360px;
+}
+
+.mensagem.erro {
+  background: #fdecea;
+  color: #b3261e;
+  border: 1px solid #f5c2c0;
+}
+
+.mensagem.sucesso {
+  background: #e8f5e9;
+  color: #1e6b32;
+  border: 1px solid #b9dfc0;
+}
