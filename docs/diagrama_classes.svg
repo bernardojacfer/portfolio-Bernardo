@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 560" width="1080" height="560" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Diagrama de classes - Projeto Integrado</title>
+  <defs>
+    <marker id="seta" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <polyline points="0,0 9,5 0,10" fill="none" stroke="#1B1F2A" stroke-width="1.5"/>
+    </marker>
+  </defs>
+  <rect width="1080" height="560" fill="#ffffff"/>
+  <text x="40" y="26" font-size="15" font-weight="700" fill="#1B1F2A">Diagrama de classes - Projeto Integrado (Etapa 1)</text>
+
+  <!-- Usuario -->
+  <g stroke="#1B1F2A" stroke-width="1.5">
+    <rect x="40" y="40" width="300" height="234" fill="#ffffff"/>
+    <rect x="40" y="40" width="300" height="34" fill="#EDEDED"/>
+    <line x1="40" y1="204" x2="340" y2="204"/>
+  </g>
+  <g fill="#1B1F2A" font-size="13">
+    <text x="190" y="62" text-anchor="middle" font-size="15" font-weight="700">Usuario</text>
+    <g font-family="ui-monospace, Menlo, Consolas, monospace">
+      <text x="52" y="92">- id : int</text>
+      <text x="52" y="112">- nome : str</text>
+      <text x="52" y="132">- email : str</text>
+      <text x="52" y="152">- senha_hash : str</text>
+      <text x="52" y="172">- perfil : str ('admin' | 'comum')</text>
+      <text x="52" y="192">- criado_em : datetime</text>
+      <text x="52" y="222">+ definir_senha(senha : str)</text>
+      <text x="52" y="242">+ verificar_senha(senha : str) : bool</text>
+      <text x="52" y="262">+ to_dict() : dict</text>
+    </g>
+  </g>
+
+  <!-- Mensagem -->
+  <g stroke="#1B1F2A" stroke-width="1.5">
+    <rect x="460" y="40" width="300" height="234" fill="#ffffff"/>
+    <rect x="460" y="40" width="300" height="34" fill="#EDEDED"/>
+    <line x1="460" y1="224" x2="760" y2="224"/>
+  </g>
+  <g fill="#1B1F2A" font-size="13">
+    <text x="610" y="62" text-anchor="middle" font-size="15" font-weight="700">Mensagem</text>
+    <g font-family="ui-monospace, Menlo, Consolas, monospace">
+      <text x="472" y="92">- id : int</text>
+      <text x="472" y="112">- usuario_id : int | None</text>
+      <text x="472" y="132">- nome : str</text>
+      <text x="472" y="152">- email : str</text>
+      <text x="472" y="172">- mensagem : str</text>
+      <text x="472" y="192">- lida : bool</text>
+      <text x="472" y="212">- criado_em : datetime</text>
+      <text x="472" y="242">+ marcar_como_lida()</text>
+      <text x="472" y="262">+ to_dict() : dict</text>
+    </g>
+  </g>
+
+  <!-- Associacao entre Usuario e Mensagem -->
+  <line x1="340" y1="150" x2="460" y2="150" stroke="#1B1F2A" stroke-width="1.5"/>
+  <g fill="#1B1F2A" font-size="13">
+    <text x="400" y="140" text-anchor="middle" font-style="italic">envia</text>
+    <text x="346" y="168">0..1</text>
+    <text x="454" y="168" text-anchor="end">0..*</text>
+  </g>
+
+  <!-- UsuarioDAO -->
+  <g stroke="#1B1F2A" stroke-width="1.5">
+    <rect x="40" y="340" width="300" height="164" fill="#ffffff"/>
+    <rect x="40" y="340" width="300" height="34" fill="#EDEDED"/>
+  </g>
+  <g fill="#1B1F2A" font-size="13">
+    <text x="190" y="362" text-anchor="middle" font-size="15" font-weight="700">UsuarioDAO</text>
+    <g font-family="ui-monospace, Menlo, Consolas, monospace">
+      <text x="52" y="392">+ inserir(u : Usuario) : int</text>
+      <text x="52" y="412">+ listar() : list</text>
+      <text x="52" y="432">+ buscar_por_id(id : int) : Usuario</text>
+      <text x="52" y="452">+ buscar_por_email(email) : Usuario</text>
+      <text x="52" y="472">+ atualizar(u : Usuario)</text>
+      <text x="52" y="492">+ excluir(id : int)</text>
+    </g>
+  </g>
+
+  <!-- MensagemDAO -->
+  <g stroke="#1B1F2A" stroke-width="1.5">
+    <rect x="460" y="340" width="300" height="124" fill="#ffffff"/>
+    <rect x="460" y="340" width="300" height="34" fill="#EDEDED"/>
+  </g>
+  <g fill="#1B1F2A" font-size="13">
+    <text x="610" y="362" text-anchor="middle" font-size="15" font-weight="700">MensagemDAO</text>
+    <g font-family="ui-monospace, Menlo, Consolas, monospace">
+      <text x="472" y="392">+ inserir(m : Mensagem) : int</text>
+      <text x="472" y="412">+ listar() : list</text>
+      <text x="472" y="432">+ marcar_lida(id : int)</text>
+      <text x="472" y="452">+ excluir(id : int)</text>
+    </g>
+  </g>
+
+  <!-- Conexao -->
+  <g stroke="#1B1F2A" stroke-width="1.5">
+    <rect x="800" y="340" width="240" height="70" fill="#ffffff"/>
+    <rect x="800" y="340" width="240" height="34" fill="#EDEDED"/>
+  </g>
+  <g fill="#1B1F2A" font-size="13">
+    <text x="920" y="362" text-anchor="middle" font-size="15" font-weight="700">Conexao</text>
+    <text x="812" y="397" font-family="ui-monospace, Menlo, Consolas, monospace">+ get_conexao() : Connection</text>
+  </g>
+
+  <!-- Dependencias (tracejadas) -->
+  <g stroke="#1B1F2A" stroke-width="1.5" stroke-dasharray="6 5" fill="none">
+    <line x1="190" y1="340" x2="190" y2="274" marker-end="url(#seta)"/>
+    <line x1="610" y1="340" x2="610" y2="274" marker-end="url(#seta)"/>
+    <line x1="760" y1="380" x2="800" y2="380" marker-end="url(#seta)"/>
+    <path d="M340 490 H780 V398 H800" marker-end="url(#seta)"/>
+  </g>
+  <g fill="#1B1F2A" font-size="13" font-style="italic">
+    <text x="200" y="312">gerencia</text>
+    <text x="620" y="312">gerencia</text>
+    <text x="780" y="372" text-anchor="middle" font-size="12">usa</text>
+  </g>
+
+  <text x="40" y="540" font-size="12" fill="#555555">Linha sólida: associação · Linha tracejada: dependência (usa) · Sinal "-": atributo privado (acesso por property) · Sinal "+": público</text>
+</svg>
