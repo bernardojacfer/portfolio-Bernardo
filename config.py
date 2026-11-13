@@ -12,3 +12,6 @@ DB_PASSWORD = os.getenv("DB_PASSWORD", "")
 DB_NAME = os.getenv("DB_NAME", "meu_projeto")
 
 SECRET_KEY = os.getenv("SECRET_KEY", "troque-esta-chave")
+
+# Chave da API pública TheSportsDB (a chave "3" é a de testes gratuita)
+SPORTSDB_KEY = os.getenv("SPORTSDB_KEY", "3")
