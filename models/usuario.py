@@ -25,6 +25,8 @@ class Usuario:
         valor = (valor or "").strip()
         if not valor:
             raise ValueError("O nome é obrigatório.")
+        if len(valor) > 100:
+            raise ValueError("O nome deve ter no máximo 100 caracteres.")
         self._nome = valor
 
     @property
@@ -36,6 +38,8 @@ class Usuario:
         valor = (valor or "").strip().lower()
         if "@" not in valor or "." not in valor.split("@")[-1]:
             raise ValueError("Informe um e-mail válido.")
+        if len(valor) > 150:
+            raise ValueError("O e-mail deve ter no máximo 150 caracteres.")
         self._email = valor
 
     @property
@@ -55,7 +59,13 @@ class Usuario:
         self.senha_hash = generate_password_hash(senha)
 
     def verificar_senha(self, senha):
-        return bool(self.senha_hash) and check_password_hash(self.senha_hash, senha)
+        if not self.senha_hash:
+            return False
+        try:
+            return check_password_hash(self.senha_hash, senha)
+        except ValueError:
+            # hash em formato desconhecido (ex.: gravado pelo PHP): não confere
+            return False
 
     def to_dict(self):
         """Dados seguros para devolver em JSON (nunca inclui a senha)."""

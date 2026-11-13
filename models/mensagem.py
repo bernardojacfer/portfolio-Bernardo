@@ -21,6 +21,8 @@ class Mensagem:
         valor = (valor or "").strip()
         if not valor:
             raise ValueError("O nome é obrigatório.")
+        if len(valor) > 100:
+            raise ValueError("O nome deve ter no máximo 100 caracteres.")
         self._nome = valor
 
     @property
@@ -32,6 +34,8 @@ class Mensagem:
         valor = (valor or "").strip().lower()
         if "@" not in valor or "." not in valor.split("@")[-1]:
             raise ValueError("Informe um e-mail válido.")
+        if len(valor) > 150:
+            raise ValueError("O e-mail deve ter no máximo 150 caracteres.")
         self._email = valor
 
     @property
@@ -43,6 +47,8 @@ class Mensagem:
         valor = (valor or "").strip()
         if not valor:
             raise ValueError("A mensagem é obrigatória.")
+        if len(valor) > 2000:
+            raise ValueError("A mensagem deve ter no máximo 2000 caracteres.")
         self._mensagem = valor
 
     # ---- comportamento ----
