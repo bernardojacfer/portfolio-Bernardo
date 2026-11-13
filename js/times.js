@@ -1,6 +1,8 @@
-// Busca informações de um time de futebol na API pública TheSportsDB
-// e mostra o resultado na página sem recarregar.
-const URL_API = "https://www.thesportsdb.com/api/v1/json/3/searchteams.php";
+// Busca informações de um time de futebol na API Flask do projeto (/api/times),
+// que consulta a TheSportsDB no servidor, e mostra o resultado sem recarregar a página.
+// Se a página estiver aberta em outra porta (ex.: Live Server), chama o Flask na porta 5000.
+const API_BASE = window.location.port === "5000" ? "" : "http://127.0.0.1:5000";
+const URL_API = `${API_BASE}/api/times`;
 
 async function buscarTime(nome) {
   const resultado = document.getElementById("time-resultado");
@@ -17,29 +19,31 @@ async function buscarTime(nome) {
   resultado.textContent = "Buscando...";
 
   try {
-    const resposta = await fetch(`${URL_API}?t=${encodeURIComponent(termo)}`);
+    const resposta = await fetch(`${URL_API}?nome=${encodeURIComponent(termo)}`);
 
-    if (!resposta.ok) {
-      throw new Error(`Erro HTTP ${resposta.status}`);
+    let dados = {};
+    try {
+      dados = await resposta.json();
+    } catch (e) {
+      // resposta sem JSON: segue com o erro genérico abaixo
     }
 
-    const dados = await resposta.json();
-
-    // Cenário inválido 2: a API responde, mas não existe time com esse nome
-    if (!dados.teams) {
+    // Cenário inválido 2: a API respondeu com erro (time não encontrado, serviço fora do ar...)
+    if (!resposta.ok) {
       resultado.className = "feedback error";
-      resultado.textContent = `Não encontrei nenhum time chamado "${termo}". Tente outro nome.`;
+      resultado.textContent =
+        dados.erro || `Não foi possível buscar o time (erro ${resposta.status}).`;
       return;
     }
 
     // Cenário válido: monta o cartão com os dados do JSON
-    mostrarTime(dados.teams[0]);
+    mostrarTime(dados.time);
   } catch (erro) {
-    // Falha de rede, API fora do ar etc.
+    // Falha de rede: o servidor Flask provavelmente não está rodando
     console.error("Falha na requisição:", erro);
     resultado.className = "feedback error";
     resultado.textContent =
-      "Não foi possível buscar o time agora. Verifique sua conexão e tente novamente.";
+      "Não foi possível falar com o servidor. Confira se o Flask está rodando (python app.py) e tente novamente.";
   }
 }
 
@@ -51,24 +55,23 @@ function mostrarTime(time) {
   const cartao = document.createElement("div");
   cartao.className = "card time-card";
 
-  const escudo = time.strBadge || time.strTeamBadge;
-  if (escudo) {
+  if (time.escudo) {
     const img = document.createElement("img");
-    img.src = escudo;
-    img.alt = `Escudo do ${time.strTeam}`;
+    img.src = time.escudo;
+    img.alt = `Escudo do ${time.nome}`;
     img.className = "time-escudo";
     cartao.appendChild(img);
   }
 
   const titulo = document.createElement("h2");
-  titulo.textContent = time.strTeam;
+  titulo.textContent = time.nome;
   cartao.appendChild(titulo);
 
   const linhas = [
-    `País: ${time.strCountry || "não informado"}`,
-    `Liga: ${time.strLeague || "não informada"}`,
-    `Estádio: ${time.strStadium || "não informado"}`,
-    `Fundação: ${time.intFormedYear || "não informada"}`,
+    `País: ${time.pais || "não informado"}`,
+    `Liga: ${time.liga || "não informada"}`,
+    `Estádio: ${time.estadio || "não informado"}`,
+    `Fundação: ${time.fundacao || "não informada"}`,
   ];
   linhas.forEach((texto) => {
     const p = document.createElement("p");

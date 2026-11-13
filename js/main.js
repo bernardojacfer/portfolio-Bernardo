@@ -1,8 +1,9 @@
-
+// Formulário de contato: envia a mensagem para a API Flask (/api/mensagens).
+// Depende de api.js.
 const form = document.getElementById('contact-form');
 
 if (form) {
-  form.addEventListener('submit', function (event) {
+  form.addEventListener('submit', async function (event) {
     event.preventDefault();
 
     const feedback = document.getElementById('form-feedback');
@@ -16,8 +17,17 @@ if (form) {
       return;
     }
 
-    feedback.textContent = 'Mensagem pronta para envio (back-end ainda não conectado).';
-    feedback.className = 'feedback success';
-    form.reset();
+    feedback.textContent = 'Enviando...';
+    feedback.className = 'feedback';
+
+    try {
+      await api('/api/mensagens', { metodo: 'POST', corpo: { nome, email, mensagem } });
+      feedback.textContent = 'Mensagem enviada com sucesso! Obrigado pelo contato.';
+      feedback.className = 'feedback success';
+      form.reset();
+    } catch (erro) {
+      feedback.textContent = erro.message;
+      feedback.className = 'feedback error';
+    }
   });
 }

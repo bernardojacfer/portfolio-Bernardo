@@ -1,0 +1,115 @@
+/* Estilos das telas da Etapa 2 (tabelas, botões de ação, avisos).
+   Inclua depois de style.css e auth.css:
+   <link rel="stylesheet" href="../css/app.css"> */
+
+/* Garante que o atributo hidden esconda mesmo elementos com display definido (.btn etc.) */
+[hidden] { display: none !important; }
+
+/* ---- Painéis largos (listas) ---- */
+.page-intro.largo { max-width: 960px; }
+
+.painel {
+  max-width: 960px;
+  margin: 0 auto 100px;
+  padding: 0 24px;
+}
+
+.painel .mensagem { max-width: none; }
+
+.barra {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+form.busca {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  margin-top: 0;
+}
+
+form.busca input { width: 280px; max-width: 100%; }
+form.busca .btn { margin-top: 0; align-self: center; }
+
+/* ---- Tabelas ---- */
+.tabela-container {
+  overflow-x: auto;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+table { width: 100%; border-collapse: collapse; }
+
+th, td {
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+th {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  background: #FBFAF7;
+}
+
+tbody tr:last-child td { border-bottom: none; }
+
+.msg-texto { white-space: pre-wrap; min-width: 220px; max-width: 360px; }
+
+.vazio { padding: 24px; text-align: center; color: var(--muted); }
+
+/* ---- Botões e etiquetas ---- */
+.acoes { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.acoes.centro { justify-content: center; }
+
+.btn-pequeno { padding: 6px 12px; font-size: 13px; }
+
+.btn-secundario {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+}
+.btn-secundario:hover { background: var(--ink); color: #fff; }
+
+.btn-excluir { background: #B3261E; }
+.btn-excluir:hover { background: #8C1D18; }
+
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--muted);
+}
+.badge.admin { background: var(--teal); border-color: var(--teal); color: #fff; }
+.badge.nova { background: #FFF4E0; border-color: #F0D9A8; color: #7A4B00; }
+
+/* ---- Formulários das telas internas ---- */
+.hero .form-auth { margin-left: auto; margin-right: auto; text-align: left; }
+.hero .mensagem { margin-left: auto; margin-right: auto; }
+
+.form-auth select {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 1rem;
+  background: var(--card-bg);
+  color: var(--ink);
+}
+
+.form-auth .dica { font-size: 13px; color: var(--muted); }
+
+.resumo { color: var(--muted); font-size: 15px; margin-top: 24px; }
