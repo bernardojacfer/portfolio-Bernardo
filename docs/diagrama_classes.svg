@@ -1,12 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 560" width="1080" height="560" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 580" width="1080" height="580" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
   <title>Diagrama de classes - Projeto Integrado</title>
   <defs>
     <marker id="seta" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse">
       <polyline points="0,0 9,5 0,10" fill="none" stroke="#1B1F2A" stroke-width="1.5"/>
     </marker>
   </defs>
-  <rect width="1080" height="560" fill="#ffffff"/>
-  <text x="40" y="26" font-size="15" font-weight="700" fill="#1B1F2A">Diagrama de classes - Projeto Integrado (Etapa 1)</text>
+  <rect width="1080" height="580" fill="#ffffff"/>
+  <text x="40" y="26" font-size="15" font-weight="700" fill="#1B1F2A">Diagrama de classes - Projeto Integrado</text>
 
   <!-- Usuario -->
   <g stroke="#1B1F2A" stroke-width="1.5">
@@ -60,18 +60,19 @@
 
   <!-- UsuarioDAO -->
   <g stroke="#1B1F2A" stroke-width="1.5">
-    <rect x="40" y="340" width="300" height="164" fill="#ffffff"/>
+    <rect x="40" y="340" width="300" height="184" fill="#ffffff"/>
     <rect x="40" y="340" width="300" height="34" fill="#EDEDED"/>
   </g>
   <g fill="#1B1F2A" font-size="13">
     <text x="190" y="362" text-anchor="middle" font-size="15" font-weight="700">UsuarioDAO</text>
     <g font-family="ui-monospace, Menlo, Consolas, monospace">
       <text x="52" y="392">+ inserir(u : Usuario) : int</text>
-      <text x="52" y="412">+ listar() : list</text>
+      <text x="52" y="412">+ listar(busca) : list</text>
       <text x="52" y="432">+ buscar_por_id(id : int) : Usuario</text>
       <text x="52" y="452">+ buscar_por_email(email) : Usuario</text>
       <text x="52" y="472">+ atualizar(u : Usuario)</text>
-      <text x="52" y="492">+ excluir(id : int)</text>
+      <text x="52" y="492">+ excluir(id : int) : bool</text>
+      <text x="52" y="512">+ contar(perfil) : int</text>
     </g>
   </g>
 
@@ -85,8 +86,8 @@
     <g font-family="ui-monospace, Menlo, Consolas, monospace">
       <text x="472" y="392">+ inserir(m : Mensagem) : int</text>
       <text x="472" y="412">+ listar() : list</text>
-      <text x="472" y="432">+ marcar_lida(id : int)</text>
-      <text x="472" y="452">+ excluir(id : int)</text>
+      <text x="472" y="432">+ marcar_lida(id : int) : bool</text>
+      <text x="472" y="452">+ excluir(id : int) : bool</text>
     </g>
   </g>
 
@@ -113,5 +114,5 @@
     <text x="780" y="372" text-anchor="middle" font-size="12">usa</text>
   </g>
 
-  <text x="40" y="540" font-size="12" fill="#555555">Linha sólida: associação · Linha tracejada: dependência (usa) · Sinal "-": atributo privado (acesso por property) · Sinal "+": público</text>
+  <text x="40" y="560" font-size="12" fill="#555555">Linha sólida: associação · Linha tracejada: dependência (usa) · Sinal "-": atributo privado (acesso por property) · Sinal "+": público</text>
 </svg>
