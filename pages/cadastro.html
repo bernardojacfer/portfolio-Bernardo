@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro | Meu Projeto Pessoal</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/auth.css">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="brand">Meu Projeto</div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <span class="eyebrow">Nova conta</span>
+      <h1>Criar conta</h1>
+      <p class="lead">Preencha os dados para se cadastrar.</p>
+
+      <p id="aviso" class="mensagem" role="alert" hidden></p>
+
+      <form id="form-cadastro" class="form-auth" novalidate>
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" maxlength="100" autocomplete="name" required>
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" maxlength="150" autocomplete="email" required>
+
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" minlength="6" autocomplete="new-password" required>
+        <span class="dica">Mínimo de 6 caracteres.</span>
+
+        <label for="confirmar_senha">Confirmar senha</label>
+        <input type="password" id="confirmar_senha" name="confirmar_senha" minlength="6" autocomplete="new-password" required>
+
+        <button type="submit" class="btn">Cadastrar</button>
+      </form>
+
+      <p>Já tem conta? <a href="login.html">Entrar</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Feito por mim &middot; Colégio UNASP-HT &middot; Técnico em Informática</p>
+  </footer>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/menu.js"></script>
+  <script src="../js/auth.js"></script>
+</body>
+</html>

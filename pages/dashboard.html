@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área do Usuário | Meu Projeto Pessoal</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/auth.css">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="brand">Meu Projeto</div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <span class="eyebrow">Área restrita</span>
+      <h1 id="titulo">Carregando...</h1>
+      <p class="lead" id="subtitulo"></p>
+
+      <p id="aviso" class="mensagem" role="alert" hidden></p>
+
+      <div class="acoes centro">
+        <a class="btn" id="link-perfil" href="editar.html" hidden>Editar meu perfil</a>
+        <a class="btn btn-secundario" id="link-usuarios" href="usuarios.html" hidden>Gerenciar usuários</a>
+        <a class="btn btn-secundario" id="link-mensagens" href="mensagens.html" hidden>Ver mensagens</a>
+      </div>
+
+      <p id="resumo" class="resumo" hidden></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Feito por mim &middot; Colégio UNASP-HT &middot; Técnico em Informática</p>
+  </footer>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/menu.js"></script>
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usuários | Meu Projeto Pessoal</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/auth.css">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="brand">Meu Projeto</div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-intro largo">
+      <span class="eyebrow">Área restrita &middot; Administrador</span>
+      <h1>Usuários cadastrados</h1>
+      <p class="lead">Consulte, edite e exclua os usuários do sistema.</p>
+    </section>
+
+    <section class="painel">
+      <div class="barra">
+        <form id="form-busca" class="busca" role="search">
+          <input type="search" id="busca" placeholder="Buscar por nome ou e-mail" aria-label="Buscar por nome ou e-mail">
+          <button type="submit" class="btn btn-pequeno">Buscar</button>
+        </form>
+        <a href="cadastro.html" class="btn btn-pequeno">Cadastrar novo usuário</a>
+      </div>
+
+      <p id="aviso" class="mensagem" role="alert" hidden></p>
+
+      <div class="tabela-container">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>E-mail</th>
+              <th>Perfil</th>
+              <th>Cadastro</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-usuarios"></tbody>
+        </table>
+        <p id="vazio" class="vazio" hidden>Nenhum usuário encontrado.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Feito por mim &middot; Colégio UNASP-HT &middot; Técnico em Informática</p>
+  </footer>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/menu.js"></script>
+  <script src="../js/usuarios.js"></script>
+</body>
+</html>

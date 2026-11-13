@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Meu Projeto Pessoal</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/auth.css">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="brand">Meu Projeto</div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <span class="eyebrow">Área restrita</span>
+      <h1>Entrar</h1>
+      <p class="lead">Acesse com o seu e-mail e a sua senha.</p>
+
+      <p id="aviso" class="mensagem" role="alert" hidden></p>
+
+      <form id="form-login" class="form-auth" novalidate>
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" autocomplete="username" required>
+
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" autocomplete="current-password" required>
+
+        <button type="submit" class="btn">Entrar</button>
+      </form>
+
+      <p>Não tem conta? <a href="cadastro.html">Criar conta</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Feito por mim &middot; Colégio UNASP-HT &middot; Técnico em Informática</p>
+  </footer>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/menu.js"></script>
+  <script src="../js/auth.js"></script>
+</body>
+</html>
